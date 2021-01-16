@@ -1,0 +1,9 @@
+url: https://idontime.vwgs.pt/default.aspx?l=1
+user_field: cpLogin_txtUtilizador_I
+password_field: cpLogin_txtSenha
+login_button: cpLogin_btnEntrar_CD
+mov_url: https://idontime.vwgs.pt/areas/as/asmovimentos.aspx
+add_frame: ctl00_ASPxSplitter_cphContent_popupEdita_CIF-1
+add_button: ctl00_ASPxSplitter_botoes_btnAdicionar
+date_to_add: 18-01-2021 08:01
+date_field: ctl00_cphContent_txtData_I
