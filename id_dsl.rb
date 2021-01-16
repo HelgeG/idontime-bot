@@ -26,6 +26,11 @@ def find_by_id_clear_and_fill_in(driver, id, value)
   element.send_keys value
 end
 
+def find_by_id_and_set_value(driver, id, value)
+  element = driver.find_element(id: id)
+  driver.execute_script("arguments[0].value='#{value}'", element)
+end
+
 def find_by_name_and_fill_in(driver, name, value)
   element = driver.find_element(name: name)
   element.send_keys value
