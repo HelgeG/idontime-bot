@@ -4,6 +4,8 @@ This script facilitates the filling in of time sheets using the IDONTIME system.
 
 By default, the script will generate IN and OUT entries for the current day, with entry at 9am, and exit at 6pm.
 
+The script requires a ruby installation (written in Ruby 2.7.2).
+
 ## Usage
 
 `$ ./idontime [arguments...]`
