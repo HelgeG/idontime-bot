@@ -2,7 +2,7 @@
 
 This script facilitates the filling in of time sheets using the IDONTIME system.
 
-By default, the script will generate IN and OUT entries for the current day, with entry at 9am, and exit at 6pm.
+By default, the script will generate a pair of IN and OUT entries for the current day, with entry at 9am, and exit at 6pm.
 
 The script requires a ruby installation (written using Ruby 2.7.2).
 
