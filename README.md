@@ -6,7 +6,7 @@ By default, the script will generate a pair of IN and OUT entries for the curren
 
 The script requires a ruby installation (written using Ruby 2.7.2).
 
-The dependencies can be installed with help of the bundler gem (`gem install bundler`), and then using the commnad `bundle install` in the project directory.
+The dependencies can be installed with help of the [bundler gem](https://bundler.io/) (`gem install bundler`), and then using the commnad `bundle install` in the project directory.
 
 If the macOS gatekeeper doesn't want to launch the chrome webdriver, the following command can be used to circumvent the problem:
 
