@@ -4,7 +4,14 @@ This script facilitates the filling in of time sheets using the IDONTIME system.
 
 By default, the script will generate IN and OUT entries for the current day, with entry at 9am, and exit at 6pm.
 
-The script requires a ruby installation (written in Ruby 2.7.2).
+The script requires a ruby installation (written using Ruby 2.7.2).
+
+The dependencies can be installed with help of the bundler gem (gem install bundler), and then using the commnad `bundle install` in the project directory.
+
+If the macOS gatekeeper doesn't want to launch the chrome webdriver, the following command can be used to circumvent the problem:
+
+`$ xattr -d com.apple.quarantine /usr/local/bin/chromedriver` (adjust the path if installed in another location).
+
 
 ## Usage
 
@@ -26,7 +33,8 @@ If present, will set the time of entry. If not present, will use the default tim
 If present, will set the time of exit. If not present, will use the default time specified in the `idontime.yaml` preference file.
 
 `'-d dd-mm-yyyy', '--date dd-mm-yyyy'`
-If present, will set the time of exit. If not present, will use today's date.
+
+If present, will set the date of the records. If not present, will use today's date.
 
 `'-u [USERNAME]', '--user [USERNAME]'`
 
