@@ -6,7 +6,7 @@ By default, the script will generate a pair of IN and OUT entries for the curren
 
 The script requires a ruby installation (written using Ruby 2.7.2).
 
-The dependencies can be installed with help of the [bundler gem](https://bundler.io/) (`gem install bundler`), and then using the commnad `bundle install` in the project directory.
+The dependencies can be installed with help of the [bundler gem](https://bundler.io/) (`gem install bundler`), and then using the command `bundle install` in the project directory.
 
 If the macOS gatekeeper doesn't want to launch the chrome webdriver, the following command can be used to circumvent the problem:
 
@@ -20,28 +20,28 @@ To install ruby versions, I like using the [rbenv tool](https://github.com/rbenv
 
 The following command line arguments can be used:
 
-`'-h', '--headless' `
+`-h` or `--headless`
 
 If present, will run the script without a Chrome GUI (i.e. headless).
 
-`'-i hh:mm', '--in hh:mm'`
+`-i hh:mm` or `--in hh:mm`
 
 If present, will set the time of entry. If not present, will use the default time specified in the `idontime.yaml` preference file.
 
 
-`'-o hh:mm', '--out hh:mm'`
+`-o hh:mm` or `--out hh:mm`
 
 If present, will set the time of exit. If not present, will use the default time specified in the `idontime.yaml` preference file.
 
-`'-d dd-mm-yyyy', '--date dd-mm-yyyy'`
+`-d dd-mm-yyyy` or `--date dd-mm-yyyy`
 
 If present, will set the date of the records. If not present, will use today's date.
 
-`'-u [USERNAME]', '--user [USERNAME]'`
+`-u [USERNAME]` or `--user [USERNAME]`
 
 Will set the username to `[USERNAME]`. If not present, uses the value of the environment variable `IDONTIME_USER`
 
-`'-p [PASSWORD]', '--password [PASSWORD]'`.
+`-p [PASSWORD]` or `--password [PASSWORD]`
 
 Will set the password to `[PASSWORD]`. If not present, uses the value of the environment variable `IDONTIME_PASSWORD`.
 
@@ -76,5 +76,7 @@ A set of properties are defined in the file `idontime.yaml`:
 :default_time_out: '18:00'
 ```
 
-Most of the values here are the HTML ID attributes of the UI elements in the IDONTIME system, as well as the URLs used to access the application.
+Most of the values here are the HTML ID attributes of the UI elements in the IDONTIME system. The file also contains
+the URLs used to access the application.
+
 The default times for entry and exit are also defined here.
