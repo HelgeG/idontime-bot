@@ -1,8 +1,8 @@
 ---
-:user_field: cpLogin_txtUtilizador_I
-:password_field: cpLogin_txtSenha
 :url: https://idontime.vwgs.pt/default.aspx?l=1
 :mov_url: https://idontime.vwgs.pt/areas/as/asmovimentos.aspx
+:user_field: cpLogin_txtUtilizador_I
+:password_field: cpLogin_txtSenha
 :login_button: cpLogin_btnEntrar_CD
 :add_frame: ctl00_ASPxSplitter_cphContent_popupEdita_CIF-1
 :add_button: ctl00_ASPxSplitter_botoes_btnAdicionar
