@@ -37,13 +37,21 @@ option_parser = OptionParser.new do |opts|
 end
 
 option_parser.parse!
-driver = create_driver(options.key?(:headless))
 time_in = options.key?(:time_in) ? options[:time_in] : options[:default_time_in]
 time_out = options.key?(:time_out) ? options[:time_out] : options[:default_time_out]
 date = options.key?(:date) ? options[:date] : Time.now.strftime('%d-%m-%Y')
-user = options.key?(:user) ? options[:user] : ENV['IDONTIME_USER']
-password = options.key?(:password) ? options[:password] : ENV['IDONTIME_PASSWORD']
+unless options.key?(:user)
+  puts 'User must be specified'
+  exit(1)
+end
+unless options.key?(:password)
+  puts 'Password must be specified'
+  exit(1)
+end
+user = options[:user]
+password = options[:password]
 
+driver = create_driver(options.key?(:headless))
 rescue_exceptions do
   go_to_url(driver, options[:url])
   find_by_id_and_fill_in(driver, options[:user_field], user)
