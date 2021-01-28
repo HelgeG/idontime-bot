@@ -45,19 +45,17 @@ If the dates from `-d` and `-f` are different, will iterate through all weekdays
 
 `-u [USERNAME]` or `--user [USERNAME]`
 
-Will set the username to `[USERNAME]`. If not present, uses the value of the environment variable `IDONTIME_USER`
+Will set the username to `[USERNAME]`.
 
 `-p [PASSWORD]` or `--password [PASSWORD]`
 
-Will set the password to `[PASSWORD]`. If not present, uses the value of the environment variable `IDONTIME_PASSWORD`.
+Will set the password to `[PASSWORD]`. 
 
 ## Example
 
-`$ ./idontime -i 08:00 --out 17:00 --date 18-01-2021 --headless`
+`$ ./idontime -i 08:00 --out 17:00 --date 18-01-2021 --headless -u user@test.com -p TheUltraSecretPassword`
 
 Will run the script in headless mode, and create a set of entries for the date 18-01-2021, starting at 8am, ending at 5pm.
-
-The username and password will be fetched from environment variables.
 
 
 `$ ./idontime -i 08:00 --out 17:00 --date 10-01-2021 --final 16-01-2021 --headless`
