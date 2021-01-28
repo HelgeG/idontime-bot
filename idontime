@@ -27,6 +27,10 @@ option_parser = OptionParser.new do |opts|
     options[:date] = date
   end
 
+  opts.on('-f DATE', '--final DATE', /^\d{2}-\d{2}-\d{4}$/) do |date|
+    options[:final] = date
+  end
+
   opts.on('-u USER', '--user USER') do |user|
     options[:user] = user
   end
@@ -40,6 +44,7 @@ option_parser.parse!
 time_in = options.key?(:time_in) ? options[:time_in] : options[:default_time_in]
 time_out = options.key?(:time_out) ? options[:time_out] : options[:default_time_out]
 date = options.key?(:date) ? options[:date] : Time.now.strftime('%d-%m-%Y')
+final = options.key?(:final) ? options[:final] : Time.now.strftime('%d-%m-%Y')
 unless options.key?(:user)
   puts 'User must be specified'
   exit(1)
@@ -57,8 +62,13 @@ rescue_exceptions do
   find_by_id_and_fill_in(driver, options[:user_field], user)
   find_by_id_and_fill_in(driver, options[:password_field], password)
   click(driver, options[:login_button])
-  create_entry(driver, date, time_in, options[:entry_in], options)
-  create_entry(driver, date, time_out, options[:entry_out], options)
+  Date.parse(date).upto(Date.parse(final)) { |entry|
+    fmt_entry = entry.strftime('%d-%m-%Y')
+    unless entry.saturday? || entry.sunday? 
+    create_entry(driver, fmt_entry, time_in, options[:entry_in], options)
+    create_entry(driver, fmt_entry, time_out, options[:entry_out], options)
+    end
+  }
 end
 
 driver.quit

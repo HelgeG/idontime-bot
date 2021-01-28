@@ -35,7 +35,13 @@ If present, will set the time of exit. If not present, will use the default time
 
 `-d dd-mm-yyyy` or `--date dd-mm-yyyy`
 
-If present, will set the date of the records. If not present, will use today's date.
+If present, will set the initial date of the records. If not present, will use today's date.
+
+`-f dd-mm-yyyy` or `--final dd-mm-yyyy`
+
+If present, will set the final of the records. If not present, will use today's date.
+
+If the dates from `-d` and `-f` are different, will iterate through all weekdays in between and record them. If both are empty, then just set the marks for the current day.
 
 `-u [USERNAME]` or `--user [USERNAME]`
 
@@ -50,6 +56,13 @@ Will set the password to `[PASSWORD]`.
 `$ ./idontime -i 08:00 --out 17:00 --date 18-01-2021 --headless -u user@test.com -p TheUltraSecretPassword`
 
 Will run the script in headless mode, and create a set of entries for the date 18-01-2021, starting at 8am, ending at 5pm.
+
+
+`$ ./idontime -i 08:00 --out 17:00 --date 10-01-2021 --final 16-01-2021 --headless`
+
+Will run the script in headless mode, and create a set of entries for the weekdays between 10-01-2021 and 16-01-2021 (11-01-2021 to 15-01-2021), starting at 8am, ending at 5pm.
+
+The username and password will be fetched from environment variables.
 
 
 ## Properties
