@@ -21,18 +21,8 @@ class Holidays
 
     def parse_company_holidays()
         @company_holidays = [
-            # January
-            # February
-            # March
-            # April
-            # May
-            # June
-            # July
-            # August
-            # September
-            # October
-            # November
-            # December
+            '16-02-2021',
+            '24-12-2021', '31-12-2021'
         ]
     end
 
