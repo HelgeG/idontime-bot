@@ -4,6 +4,7 @@
 require 'yaml'
 require 'optparse'
 require_relative 'id_dsl'
+require_relative 'working_days'
 
 PROPERTIES_FILE = 'idontime.yaml'
 
@@ -56,6 +57,8 @@ end
 user = options[:user]
 password = options[:password]
 
+holidays = Holidays.new(options[:personal_holidays_filename])
+
 driver = create_driver(options.key?(:headless))
 rescue_exceptions do
   go_to_url(driver, options[:url])
@@ -64,9 +67,9 @@ rescue_exceptions do
   click(driver, options[:login_button])
   Date.parse(date).upto(Date.parse(final)) { |entry|
     fmt_entry = entry.strftime('%d-%m-%Y')
-    unless entry.saturday? || entry.sunday? 
-    create_entry(driver, fmt_entry, time_in, options[:entry_in], options)
-    create_entry(driver, fmt_entry, time_out, options[:entry_out], options)
+    unless entry.saturday? || entry.sunday? || !holidays.is_working_day(fmt_entry)
+      create_entry(driver, fmt_entry, time_in, options[:entry_in], options)
+      create_entry(driver, fmt_entry, time_out, options[:entry_out], options)
     end
   }
 end
