@@ -19,6 +19,7 @@ def create_driver(headless)
   driver_options = Selenium::WebDriver::Chrome::Options.new
   driver_options.add_argument('--disable-popup-blocking')
   driver_options.add_argument('--disable-translate')
+  driver_options.add_argument('--ignore-certificate-errors')
   driver_options.add_argument('--headless') if headless
   Selenium::WebDriver.for :chrome, options: driver_options
 end
