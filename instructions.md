@@ -84,7 +84,7 @@ Now it is time to copy the script from github to our machine:
 
 Now we can prepare the dependencies that are require by running the following commands:
 
-`cd idontime`  
+`cd idontime-bot`  
 `bundle init`  
 
 Our environment should now be ready to run the script.
@@ -93,7 +93,7 @@ Our environment should now be ready to run the script.
 
 Move to the directory where the idontime script is located:
 
-`cd ~/scripts/idontime`
+`cd ~/scripts/idontime-bot`
 
 Execute the script by typing the following:
 
