@@ -14,6 +14,9 @@ If the macOS gatekeeper doesn't want to launch the chrome webdriver, the followi
 
 To install ruby versions, I like using the [rbenv tool](https://github.com/rbenv/rbenv).
 
+## Holidays Configuration
+To avoid errors while filling the time sheet in bulk, you should create a new file `my_holidays.txt` under the folder `idontime-bot`. You can then update this file with your personal holidays. To do do so, place one day per line with the following format: `day-month-year` (example: `20-05-2021`). The bot will discard these dates if you try to fill the time sheet with them.
+
 ## Usage
 
 `$ ./idontime [arguments...]`
@@ -83,6 +86,7 @@ A set of properties are defined in the file `idontime.yaml`:
 :entry_in: ctl00_cphContent_cbTipoMov_DDD_L_LBI3T0
 :entry_out: ctl00_cphContent_cbTipoMov_DDD_L_LBI4T0
 :submit_button: ctl00_btnGuardar
+:personal_holidays_filename: 'my_holidays.txt'
 :default_time_in: '09:00'
 :default_time_out: '18:00'
 ```

@@ -11,5 +11,6 @@
 :entry_in: ctl00_cphContent_cbTipoMov_DDD_L_LBI3T0
 :entry_out: ctl00_cphContent_cbTipoMov_DDD_L_LBI4T0
 :submit_button: ctl00_btnGuardar
+:personal_holidays_filename: 'my_holidays.txt'
 :default_time_in: '09:00'
 :default_time_out: '18:00'
