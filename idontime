@@ -45,7 +45,7 @@ option_parser.parse!
 time_in = options.key?(:time_in) ? options[:time_in] : options[:default_time_in]
 time_out = options.key?(:time_out) ? options[:time_out] : options[:default_time_out]
 date = options.key?(:date) ? options[:date] : Time.now.strftime('%d-%m-%Y')
-final = options.key?(:final) ? options[:final] : Time.now.strftime('%d-%m-%Y')
+final = options.key?(:final) ? options[:final] : date
 unless options.key?(:user)
   puts 'User must be specified'
   exit(1)

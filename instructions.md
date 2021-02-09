@@ -16,8 +16,19 @@ On my machine, I am not allowed to do this, as I get the following error message
 
 ![gem error](images/gem-error.png "gem error")
 
-In order to get around this issue (and because I also like to control which version of ruby I run), I install a set of 
+You can get around this by using `sudo gem install bundler`. For that to work, you need to run the "Admin for one hour" 
+tool in the self service portal, and restart the Terminal app.
+
+Another way to get around this issue (and because I also like to control which version of ruby I run), I install a set of 
 tools on the mac. The details are described in the next section.
+
+Sometimes the dependencies, particularly the chrome-driver, is not properly installed. The following instructions shows
+how to deal with this issue.
+
+`wget https://chromedriver.storage.googleapis.com/88.0.4324.96/chromedriver_mac64.zip && unzip  chromedriver_mac64.zip`
+
+This will download and unpack the chromedriver in the current directory. (Thanks to José Carlos Pereira for this explanation)
+
 
 ## Installing homebrew, rbenv and ruby
 

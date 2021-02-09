@@ -44,7 +44,7 @@ If present, will set the initial date of the records. If not present, will use t
 
 `-f dd-mm-yyyy` or `--final dd-mm-yyyy`
 
-If present, will set the final of the records. If not present, will use today's date.
+If present, will set the final date of the records. If not present, will use the same value as the initial date.
 
 If the dates from `-d` and `-f` are different, will iterate through all weekdays in between and record them. If both are empty, then just set the marks for the current day.
 
