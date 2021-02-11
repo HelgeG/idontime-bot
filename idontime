@@ -28,13 +28,8 @@ time_out = options.key?(:time_out) ? options[:time_out] : options[:default_time_
 date = options.key?(:date) ? options[:date] : Time.now.strftime('%d-%m-%Y')
 final = options.key?(:final) ? options[:final] : date
 
-unless options.key?(:user)
-  puts 'User must be specified'
-  exit(1)
-end
-
-unless options.key?(:password)
-  puts 'Password must be specified'
+unless options.key?(:user) && options.key?(:password)
+  puts 'User and password must be specified'
   exit(1)
 end
 
