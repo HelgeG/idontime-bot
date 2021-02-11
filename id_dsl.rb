@@ -54,6 +54,13 @@ def frame(driver, id)
   wait
 end
 
+def login(driver, options)
+  go_to_url(driver, options[:url])
+  find_by_id_and_fill_in(driver, options[:user_field], options[:user])
+  find_by_id_and_fill_in(driver, options[:password_field], options[:password])
+  click(driver, options[:login_button])
+end
+
 def create_entry(driver, date, time, options)
   go_to_url(driver, options[:mov_url])
   click(driver, options[:add_button])
