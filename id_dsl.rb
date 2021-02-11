@@ -9,8 +9,10 @@ end
 def rescue_exceptions
   yield
 rescue Selenium::WebDriver::Error::NoSuchElementError
+  puts 'Error: Could not find element'
   false
 rescue Selenium::WebDriver::Error::StaleElementReferenceError
+  puts 'Error: Element is stale'
   false
 end
 
@@ -37,18 +39,6 @@ end
 def find_by_id_clear_and_fill_in(driver, id, value)
   element = driver.find_element(id: id)
   element.clear
-  element.send_keys value
-  wait
-end
-
-def find_by_id_and_set_value(driver, id, value)
-  element = driver.find_element(id: id)
-  driver.execute_script("arguments[0].value='#{value}'", element)
-  wait
-end
-
-def find_by_name_and_fill_in(driver, name, value)
-  element = driver.find_element(name: name)
   element.send_keys value
   wait
 end
