@@ -65,13 +65,13 @@ rescue_exceptions do
   find_by_id_and_fill_in(driver, options[:user_field], user)
   find_by_id_and_fill_in(driver, options[:password_field], password)
   click(driver, options[:login_button])
-  Date.parse(date).upto(Date.parse(final)) { |entry|
+  Date.parse(date).upto(Date.parse(final)) do |entry|
     fmt_entry = entry.strftime('%d-%m-%Y')
-    unless entry.saturday? || entry.sunday? || !holidays.is_working_day(fmt_entry)
-      create_entry(driver, fmt_entry, time_in, options[:entry_in], options)
-      create_entry(driver, fmt_entry, time_out, options[:entry_out], options)
-    end
-  }
+    next if entry.saturday? || entry.sunday? || !holidays.is_working_day(fmt_entry)
+
+    create_entry(driver, fmt_entry, time_in, options)
+    create_entry(driver, fmt_entry, time_out, options)
+  end
 end
 
 driver.quit

@@ -64,12 +64,10 @@ def frame(driver, id)
   wait
 end
 
-def create_entry(driver, date, time, entry, options)
+def create_entry(driver, date, time, options)
   go_to_url(driver, options[:mov_url])
   click(driver, options[:add_button])
   frame(driver, options[:add_frame])
   find_by_id_clear_and_fill_in(driver, options[:date_field], "#{date} #{time}")
-  click(driver, options[:entry_dropdown])
-  click(driver, entry)
   click(driver, options[:submit_button])
 end
