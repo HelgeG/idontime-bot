@@ -12,33 +12,13 @@ options = YAML.safe_load(File.read(PROPERTIES_FILE), [Symbol])
 options ||= {}
 
 option_parser = OptionParser.new do |opts|
-  opts.on('-h', '--headless') do
-    options[:headless] = true
-  end
-
-  opts.on('-i IN', '--in IN', /^[0-2]\d:[0-5]\d$/) do |time|
-    options[:time_in] = time
-  end
-
-  opts.on('-o TIME OUT', '--out TIME OUT', /^[0-2]\d:[0-5]\d$/) do |time|
-    options[:time_out] = time
-  end
-
-  opts.on('-d DATE', '--date DATE', /^\d{2}-\d{2}-\d{4}$/) do |date|
-    options[:date] = date
-  end
-
-  opts.on('-f DATE', '--final DATE', /^\d{2}-\d{2}-\d{4}$/) do |date|
-    options[:final] = date
-  end
-
-  opts.on('-u USER', '--user USER') do |user|
-    options[:user] = user
-  end
-
-  opts.on('-p PASSWORD', '--password PASSWORD') do |password|
-    options[:password] = password
-  end
+  opts.on('-h', '--headless') { options[:headless] = true }
+  opts.on('-i IN', '--in IN', /^[0-2]\d:[0-5]\d$/) { |time| options[:time_in] = time }
+  opts.on('-o TIME OUT', '--out TIME OUT', /^[0-2]\d:[0-5]\d$/) { |time| options[:time_out] = time }
+  opts.on('-d DATE', '--date DATE', /^\d{2}-\d{2}-\d{4}$/) { |date|  options[:date] = date }
+  opts.on('-f DATE', '--final DATE', /^\d{2}-\d{2}-\d{4}$/) { |date| options[:final] = date }
+  opts.on('-u USER', '--user USER') { |user| options[:user] = user }
+  opts.on('-p PASSWORD', '--password PASSWORD') { |password| options[:password] = password }
 end
 
 option_parser.parse!
