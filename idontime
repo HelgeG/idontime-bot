@@ -23,24 +23,23 @@ end
 
 option_parser.parse!
 
-time_in = options.key?(:time_in) ? options[:time_in] : options[:default_time_in]
-time_out = options.key?(:time_out) ? options[:time_out] : options[:default_time_out]
-date = options.key?(:date) ? options[:date] : Time.now.strftime('%d-%m-%Y')
-final = options.key?(:final) ? options[:final] : date
-
 unless options.key?(:user) && options.key?(:password)
   puts 'User and password must be specified'
   exit(1)
 end
 
 holidays = Holidays.new(options[:personal_holidays_filename])
+time_in = options.key?(:time_in) ? options[:time_in] : options[:default_time_in]
+time_out = options.key?(:time_out) ? options[:time_out] : options[:default_time_out]
+date = options.key?(:date) ? options[:date] : Time.now.strftime('%d-%m-%Y')
+final = options.key?(:final) ? options[:final] : date
 driver = create_driver(options.key?(:headless))
 
 rescue_exceptions do
   login(driver, options)
   Date.parse(date).upto(Date.parse(final)) do |entry|
     fmt_entry = entry.strftime('%d-%m-%Y')
-    next if entry.saturday? || entry.sunday? || !holidays.is_working_day(fmt_entry)
+    next if entry.saturday? || entry.sunday? || !holidays.working_day?(fmt_entry)
 
     create_entry(driver, fmt_entry, time_in, options)
     create_entry(driver, fmt_entry, time_out, options)
