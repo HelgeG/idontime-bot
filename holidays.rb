@@ -27,4 +27,12 @@ class Holidays
   def working_day?(date)
     !public_holiday?(date) && !personal_holiday?(date) && !company_holiday?(date)
   end
+
+  def holiday?(date)
+    !working_day?(date)
+  end
+
+  def day_off?(entry)
+    entry.saturday? || entry.sunday? || holiday?(entry.strftime('%d-%m-%Y'))
+  end
 end

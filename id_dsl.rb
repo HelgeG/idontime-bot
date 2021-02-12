@@ -65,6 +65,6 @@ def create_entry(driver, date, time, options)
   go_to_url(driver, options[:mov_url])
   click(driver, options[:add_button])
   frame(driver, options[:add_frame])
-  find_by_id_clear_and_fill_in(driver, options[:date_field], "#{date} #{time}")
+  find_by_id_clear_and_fill_in(driver, options[:date_field], "#{date.strftime('%d-%m-%Y')} #{time}")
   click(driver, options[:submit_button])
 end
