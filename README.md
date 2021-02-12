@@ -84,9 +84,6 @@ A set of properties are defined in the file `idontime.yaml`:
 :add_frame: ctl00_ASPxSplitter_cphContent_popupEdita_CIF-1
 :add_button: ctl00_ASPxSplitter_botoes_btnAdicionar
 :date_field: ctl00_cphContent_txtData_I
-:entry_dropdown: ctl00_cphContent_cbTipoMov_B-1Img
-:entry_in: ctl00_cphContent_cbTipoMov_DDD_L_LBI3T0
-:entry_out: ctl00_cphContent_cbTipoMov_DDD_L_LBI4T0
 :submit_button: ctl00_btnGuardar
 :personal_holidays_filename: 'my_holidays.txt'
 :default_time_in: '09:00'
